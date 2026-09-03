@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Informe</title>
+    <link rel="stylesheet" href="{% static 'temblor/css/styles.css' %}">
+</head>
+<body>
+    <div class="card">
+        <h2>INFORME DE TEMBLOR</h2>
+        <div class="report-list">
+            <div class="report-item"><strong>Nombre:</strong> {{ registro.nombre }}</div>
+            <div class="report-item"><strong>Magnitud:</strong> {{ registro.magnitud }}</div>
+            <div class="report-item"><strong>Profundidad:</strong> {{ registro.profundidad }} km</div>
+            <div class="report-item"><strong>Rango:</strong> {{ registro.rango }}</div>
+            <div class="report-item"><strong>Lugar:</strong> {{ registro.lugar }}</div>
+            <div class="report-item"><strong>Área:</strong> {{ registro.area }}</div>
+            <div class="report-item"><strong>Fecha:</strong> {{ registro.fecha }}</div>
+            <div class="report-item"><strong>Hora:</strong> {{ registro.hora }}</div>
+        </div>
+        <a href="{% url 'formulario' %}" class="btn-primary">🔄 Volver al Formulario</a>
+    </div>
+</body>
+</html>

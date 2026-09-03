@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenida</title>
+    <link rel="stylesheet" href="{% static 'temblor/css/styles.css' %}">
+</head>
+<body>
+    <div class="card">
+        <h1>POPAYÁN</h1>
+        <p class="subtitle">¡Bienvenido a la página principal!</p>
+        <a href="{% url 'formulario' %}" class="btn-primary">📋 Ver Formulario</a>
+    </div>
+</body>
+</html>
