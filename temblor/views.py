@@ -25,3 +25,10 @@ def crear_temblor(request):
 def salida_temblor(request, pk):
     registro = RegistroTemblor.objects.get(id=pk)
     return render(request, 'temblor/salida.html', {'registro': registro})
+
+from rest_framework import viewsets
+from .serializers import RegistroTemblorSerializer
+
+class RegistroTemblorViewSet(viewsets.ModelViewSet):
+    queryset = RegistroTemblor.objects.all()
+    serializer_class = RegistroTemblorSerializer
