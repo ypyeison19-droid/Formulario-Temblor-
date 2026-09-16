@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import RegistroTemblor
+from .models import Alerta
 
-class RegistroTemblorSerializer(serializers.ModelSerializer):
+class AlertaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RegistroTemblor
+        model = Alerta
         fields = '__all__'
