@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import RegistroTemblor
+from rest_framework import viewsets
+from .models import Alerta
+from .serializers import RegistroTemblorSerializer
 
 def inicio(request):
     return render(request, 'temblor/inicio.html')
@@ -9,7 +11,7 @@ def bienvenida(request):
 
 def crear_temblor(request):
     if request.method == 'POST':
-        registro = RegistroTemblor.objects.create(
+        registro = Alerta.objects.create(
             nombre=request.POST.get('nombre'),
             magnitud=request.POST.get('magnitud'),
             profundidad=request.POST.get('profundidad'),
@@ -23,12 +25,10 @@ def crear_temblor(request):
     return render(request, 'temblor/formulario.html')
 
 def salida_temblor(request, pk):
-    registro = RegistroTemblor.objects.get(id=pk)
+    registro = Alerta.objects.get(id=pk)
     return render(request, 'temblor/salida.html', {'registro': registro})
 
-from rest_framework import viewsets
-from .serializers import RegistroTemblorSerializer
-
+# API ViewSet para React
 class RegistroTemblorViewSet(viewsets.ModelViewSet):
-    queryset = RegistroTemblor.objects.all()
+    queryset = Alerta.objects.all()
     serializer_class = RegistroTemblorSerializer
