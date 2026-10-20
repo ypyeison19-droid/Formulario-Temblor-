@@ -98,6 +98,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Solo incluir static/ si la carpeta existe en el proyecto
 STATICFILES_DIRS = []
@@ -109,11 +110,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Email configuration
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
-}
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Permisos CORS para conectar con React en Render
 CORS_ALLOW_ALL_ORIGINS = True
